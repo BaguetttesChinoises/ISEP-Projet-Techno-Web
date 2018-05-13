@@ -1,6 +1,6 @@
 package fr.isep.api;
 
-import fr.isep.model.Product;
+import fr.isep.api.model.Product;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;

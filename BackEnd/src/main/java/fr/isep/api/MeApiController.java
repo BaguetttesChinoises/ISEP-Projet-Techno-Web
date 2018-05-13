@@ -1,7 +1,7 @@
 package fr.isep.api;
 
-import fr.isep.model.Profile;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.isep.api.model.Profile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

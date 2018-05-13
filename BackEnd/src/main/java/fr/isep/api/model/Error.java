@@ -1,4 +1,4 @@
-package fr.isep.model;
+package fr.isep.api.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;

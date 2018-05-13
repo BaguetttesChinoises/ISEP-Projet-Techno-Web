@@ -5,8 +5,8 @@
  */
 package fr.isep.api;
 
-import fr.isep.model.Activities;
-import fr.isep.model.Error;
+import fr.isep.api.model.Activities;
+import fr.isep.api.model.Error;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +18,13 @@ import javax.validation.Valid;
 @Api(value = "history", description = "the history API")
 public interface HistoryApi {
 
-    @ApiOperation(value = "User Activity", nickname = "historyGet", notes = "The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.<br><br>The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.", response = Activities.class, tags={ "User", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "History information for the given user", response = Activities.class),
-        @ApiResponse(code = 200, message = "Unexpected error", response = Error.class) })
+    @ApiOperation(value = "User Activity", nickname = "historyGet", notes = "The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.<br><br>The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.", response = Activities.class, tags = {"User",})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "History information for the given user", response = Activities.class),
+            @ApiResponse(code = 200, message = "Unexpected error", response = Error.class)})
     @RequestMapping(value = "/history",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<Activities> historyGet(@ApiParam(value = "Offset the list of returned results by this amount. Default is zero.") @Valid @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "Number of items to retrieve. Default is 5, maximum is 100.") @Valid @RequestParam(value = "limit", required = false) Integer limit);
+            produces = {"application/json"},
+            method = RequestMethod.GET)
+    ResponseEntity<Activities> historyGet(@ApiParam(value = "Offset the list of returned results by this amount. Default is zero.") @Valid @RequestParam(value = "offset", required = false) Integer offset, @ApiParam(value = "Number of items to retrieve. Default is 5, maximum is 100.") @Valid @RequestParam(value = "limit", required = false) Integer limit);
 
 }

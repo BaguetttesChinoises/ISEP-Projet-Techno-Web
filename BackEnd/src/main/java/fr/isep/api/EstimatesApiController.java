@@ -1,7 +1,7 @@
 package fr.isep.api;
 
-import fr.isep.model.PriceEstimate;
-import fr.isep.model.Product;
+import fr.isep.api.model.PriceEstimate;
+import fr.isep.api.model.Product;
 import java.util.UUID;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;

@@ -1,4 +1,4 @@
-package fr.isep.api;
+package fr.isep.api.exception;
 
 public class ApiException extends Exception{
     private int code;

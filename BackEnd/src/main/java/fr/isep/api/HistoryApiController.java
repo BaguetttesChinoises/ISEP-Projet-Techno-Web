@@ -1,8 +1,8 @@
 package fr.isep.api;
 
-import fr.isep.model.Activities;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.annotations.*;
+import fr.isep.api.model.Activities;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.IOException;
 
 @Controller
@@ -29,7 +29,7 @@ public class HistoryApiController implements HistoryApi {
         this.request = request;
     }
 
-    public ResponseEntity<Activities> historyGet(@ApiParam(value = "Offset the list of returned results by this amount. Default is zero.") @Valid @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "Number of items to retrieve. Default is 5, maximum is 100.") @Valid @RequestParam(value = "limit", required = false) Integer limit) {
+    public ResponseEntity<Activities> historyGet(@ApiParam(value = "Offset the list of returned results by this amount. Default is zero.") @Valid @RequestParam(value = "offset", required = false) Integer offset, @ApiParam(value = "Number of items to retrieve. Default is 5, maximum is 100.") @Valid @RequestParam(value = "limit", required = false) Integer limit) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {

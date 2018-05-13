@@ -5,8 +5,8 @@
  */
 package fr.isep.api;
 
-import fr.isep.model.Error;
-import fr.isep.model.Product;
+import fr.isep.api.model.Error;
+import fr.isep.api.model.Product;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Api(value = "products", description = "the products API")
 public interface ProductsApi {
 
-    @ApiOperation(value = "Product Types", nickname = "productsGet", notes = "The Products endpoint returns information about the *Uber* products offered at a given location. The response includes the display name and other details about each product, and lists the products in the proper display order. ", response = Product.class, responseContainer = "List", tags={ "Products", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "An array of products", response = Product.class, responseContainer = "List"),
-        @ApiResponse(code = 200, message = "Unexpected error", response = Error.class) })
+    @ApiOperation(value = "Product Types", nickname = "productsGet", notes = "The Products endpoint returns information about the *Uber* products offered at a given location. The response includes the display name and other details about each product, and lists the products in the proper display order. ", response = Product.class, responseContainer = "List", tags = {"Products",})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "An array of products", response = Product.class, responseContainer = "List"),
+            @ApiResponse(code = 200, message = "Unexpected error", response = Error.class)})
     @RequestMapping(value = "/products",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<List<Product>> productsGet(@NotNull @ApiParam(value = "Latitude component of location.", required = true) @Valid @RequestParam(value = "latitude", required = true) Double latitude,@NotNull @ApiParam(value = "Longitude component of location.", required = true) @Valid @RequestParam(value = "longitude", required = true) Double longitude);
+            produces = {"application/json"},
+            method = RequestMethod.GET)
+    ResponseEntity<List<Product>> productsGet(@NotNull @ApiParam(value = "Latitude component of location.", required = true) @Valid @RequestParam(value = "latitude", required = true) Double latitude, @NotNull @ApiParam(value = "Longitude component of location.", required = true) @Valid @RequestParam(value = "longitude", required = true) Double longitude);
 
 }

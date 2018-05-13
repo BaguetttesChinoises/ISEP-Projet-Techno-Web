@@ -5,9 +5,12 @@
  */
 package fr.isep.api;
 
-import fr.isep.model.Profile;
-import fr.isep.model.Error;
-import io.swagger.annotations.*;
+import fr.isep.api.model.Error;
+import fr.isep.api.model.Profile;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Api(value = "me", description = "the me API")
 public interface MeApi {
 
-    @ApiOperation(value = "User Profile", nickname = "meGet", notes = "The User Profile endpoint returns information about the Uber user that has authorized with the application.", response = Profile.class, tags={ "User", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Profile information for a user", response = Profile.class),
-        @ApiResponse(code = 200, message = "Unexpected error", response = Error.class) })
+    @ApiOperation(value = "User Profile", nickname = "meGet", notes = "The User Profile endpoint returns information about the Uber user that has authorized with the application.", response = Profile.class, tags = {"User",})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Profile information for a user", response = Profile.class),
+            @ApiResponse(code = 200, message = "Unexpected error", response = Error.class)})
     @RequestMapping(value = "/me",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
+            produces = {"application/json"},
+            method = RequestMethod.GET)
     ResponseEntity<Profile> meGet();
 
 }
