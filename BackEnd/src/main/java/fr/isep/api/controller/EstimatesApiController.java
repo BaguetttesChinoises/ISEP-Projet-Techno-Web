@@ -1,4 +1,4 @@
-package fr.isep.api;
+package fr.isep.api.controller;
 
 import fr.isep.api.model.PriceEstimate;
 import fr.isep.api.model.Product;

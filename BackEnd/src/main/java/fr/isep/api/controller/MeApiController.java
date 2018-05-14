@@ -1,4 +1,4 @@
-package fr.isep.api;
+package fr.isep.api.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.isep.api.model.Profile;

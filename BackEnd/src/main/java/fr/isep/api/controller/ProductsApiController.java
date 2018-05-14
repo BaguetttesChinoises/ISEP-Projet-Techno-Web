@@ -1,8 +1,8 @@
-package fr.isep.api;
+package fr.isep.api.controller;
 
-import fr.isep.api.model.Product;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.annotations.*;
+import fr.isep.api.model.Product;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.constraints.*;
-import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class ProductsApiController implements ProductsApi {
         this.request = request;
     }
 
-    public ResponseEntity<List<Product>> productsGet(@NotNull @ApiParam(value = "Latitude component of location.", required = true) @Valid @RequestParam(value = "latitude", required = true) Double latitude,@NotNull @ApiParam(value = "Longitude component of location.", required = true) @Valid @RequestParam(value = "longitude", required = true) Double longitude) {
+    public ResponseEntity<List<Product>> productsGet(@NotNull @ApiParam(value = "Latitude component of location.", required = true) @Valid @RequestParam(value = "latitude", required = true) Double latitude, @NotNull @ApiParam(value = "Longitude component of location.", required = true) @Valid @RequestParam(value = "longitude", required = true) Double longitude) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {

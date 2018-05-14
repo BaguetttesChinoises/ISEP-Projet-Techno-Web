@@ -3,7 +3,7 @@
  * https://github.com/swagger-api/swagger-codegen
  * Do not edit the class manually.
  */
-package fr.isep.api;
+package fr.isep.api.controller;
 
 import fr.isep.api.model.Error;
 import fr.isep.api.model.Product;
