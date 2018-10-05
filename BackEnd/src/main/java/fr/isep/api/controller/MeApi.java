@@ -18,13 +18,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Api(value = "me", description = "the me API")
 public interface MeApi {
 
-    @ApiOperation(value = "User Profile", nickname = "meGet", notes = "The User Profile endpoint returns information about the Uber user that has authorized with the application.", response = Profile.class, tags = {"User",})
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Profile information for a user", response = Profile.class),
-            @ApiResponse(code = 200, message = "Unexpected error", response = Error.class)})
-    @RequestMapping(value = "/me",
-            produces = {"application/json"},
-            method = RequestMethod.GET)
-    ResponseEntity<Profile> meGet();
+    public interface AdditionInterface extends Remote {
+
+    }
+    public Addition{} throws RemoteException {
+
+    }
+    public int add(int a, int b) throws RemoteException {
+        int result= a+b;
+        return result;
+    }
 
 }
